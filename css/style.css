@@ -32,6 +32,13 @@ body {
   padding: 2% 2%;
   border-radius: 4px;
 }
+.section form .select {
+  width: 100%;
+  margin-bottom: 2%;
+  padding: 2% 2%;
+  border: 2px inset black;
+  border-radius: 4px;
+}
 .btns {
   width: 100%;
   display: flex;
@@ -124,4 +131,8 @@ body {
   border: 1px solid #dddddd;
   padding: 5px;
   font-size: 0.9rem;
+}
+.active {
+  background-color: black;
+  color: white;
 }
