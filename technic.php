@@ -81,7 +81,7 @@
                 // print_r($data);
             ?>
 
-            <form action="del.php">
+            <form action="del-tech.php">
                 <table class="table">
                     <thead>
                         <tr>
@@ -105,7 +105,7 @@
                             mysqli_query($connect, "SET CHARSET UTF8;");
                             $result = mysqli_query($connect, "SELECT * FROM `tehnic` WHERE Id_teh > 0;");
                             while($row = mysqli_fetch_array($result)){
-                                echo "<tr class='tr'><td><input name='id' class='check' type='checkbox' value='$row[Id_teh]'></td><td class='id'>$row[Id_teh]</td><td>$row[Name]</td><td>$row[Numb]</td><td>$row[Id_military_unit]</td></tr>";
+                                echo "<tr class='tr' id='td_$row[Id_teh]'><td><input name='id' class='check' type='checkbox' value='$row[Id_teh]'></td><td class='id'>$row[Id_teh]</td><td>$row[Name]</td><td>$row[Numb]</td><td>$row[Id_military_unit]</td></tr>";
                             }
                         ?>
                        

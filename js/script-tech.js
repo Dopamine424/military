@@ -5,6 +5,8 @@ let militaryUnit = document.querySelector('[name="military_unit"]');
 
 let tbody = document.querySelector(".tbody");
 
+let idEmployee = document.querySelector('[name="id"]');
+
 
 let id = document.querySelectorAll(".id");
 //console.log(id.length + 1);
@@ -29,19 +31,24 @@ $(document).ready(function() {
     $('.btn-del').click(function(event){
         event.preventDefault();
         console.log(1);
-
+        //form.dispatchEvent(new Event("submit"));
+        // let elem = document.querySelectorAll(".tr");
+        // elem.remove();
         const check = document.querySelectorAll('.check');
                 btnDel.addEventListener('click', () => {
                     console.log(2);
                     for (let i = 0; i < check.length; i++) {
                         if (check.checked) {
                             check.remove();
-                       
+                            del.parentElement.remove();
                         }
                     }
             }); 
             DelInput();
 
+        // var htmlString = ``;
+        //$( '.tbody' ).text( htmlString );
+        // tbody.innerHTML += htmlString;
     });
 });
 
@@ -75,12 +82,18 @@ const getFormValue = async(event) => {
 
 const DelInput = async(event) => {
     let asd = document.querySelectorAll('input');
+    let test = document.querySelector('.main_tr');
     let dataDel = [];
+    let onlineDel = [];
+
     for(let el of asd){
         if(el.checked){
             dataDel.push(el.value)
+            // onlineDel.push(document.getElementById(`tr_${el.value}`))
+            onlineDel.push(document.querySelector(`#td_${el.value}`));
         }
     }
+    console.log(onlineDel)
     console.log(dataDel)
     const data = {
         // idEmployee: idEmployee.value
@@ -97,9 +110,15 @@ const DelInput = async(event) => {
     });
     if (response.ok) {
         //const res = await response.text();
-        alert('Данные удалены');
+        alert('Данные удаленыqweqwewq');
+        for(let el of onlineDel){
+            console.log(el)
+            el.remove();
+        }
     };
     console.log(data);
+    // test.removeChild(document.querySelector('#td_221'));
+    
 };
 // btn.onclick = getFormValue;
 
@@ -147,4 +166,3 @@ const DelInput = async(event) => {
 //         })
 //     });
 // });
-
